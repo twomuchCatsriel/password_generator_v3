@@ -1,103 +1,81 @@
 import Image from "next/image";
+import Link from "next/link";
+import Navbar from "./components/navbar";
+import Footerbar from "./components/footerbar";
+import Header from "./components/header";
+import Text from "./components/text";
+import Subheader from "./components/subheader";
+import InfoBox from "./components/infobox";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="bg-cyan-900 bg-cover flex flex-col wrap-break-word">
+      <Navbar></Navbar>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <div className="flex flex-1 flex-col justify-center items-center text-center min-h-screen">
+        <div className="bg-black/60 p-10 rounded-lg">
+        <Header>Catsriel's Password Generator v.3</Header>
+        <Text>The World's Worst Password Generator</Text>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+      
+      <section id="info" className="bg-gray-900 p-2 sm:flex">
+        <InfoBox>
+          <Subheader>About The Generator</Subheader>
+          <Text>Catsriel's Password Generator is a no-bullshit password generator written in Next.js.</Text>
+          <Text>This is the third iteration of a Password Generator, with the goal of being very customizable.</Text>
+          <Text>The Generator's code is on Github for anyone that wants to take a look.</Text>
+          <Text>Generated Passwords are never saved anywhere.</Text>
+          <Text>This is an expanded version of 2 Older Projects of Mine, both of which were written in Vanilla HTML/CSS/JS.</Text>
+
+          <Subheader>Password Manager</Subheader>
+          <Text>This Generator is primarily built with Password Manager's in mind.</Text>
+          <Text>This is not required, but highly recommended, especially for standard passwords.</Text>
+          <Text>Standard Passwords are long strings of random characters, so a Password manager is recommended.</Text>
+          <Text>My Personal Recommendation for a Password Manager is Bitwarden, as it's easy to use, and free.</Text>
+
+          <Subheader>Password Types</Subheader>
+          <Text>This Generator can currently be used to generate 2 Password Types:</Text>
+          <div className="m-10">
+            <Text><b> - Standard Password </b></Text>
+            <Text>A String of fully Random Characters. (Recommended for most uses)</Text>
+          </div>
+          <div className="m-10">
+            <Text><b> - Readable / Master Passwords </b></Text>
+            <Text>A Collection of Randomly choicen Dictionary Words, Random Numbers and A Special Character.</Text>
+            <Text>Example: <b> PublishIntensifyPoemIntensify971#</b></Text>
+            <Text>These passwords are intended to act as passwords that you need to memorize yourself, such as for Master Passwords.</Text>
+            <Text>Readable Passwords should Always be written down and kept somewhere safe.</Text>
+          </div>
+        </InfoBox>
+
+        <InfoBox>
+          <Subheader>Defaults, Limits and Recommendations</Subheader>
+          <Text>The Generators has a couple of Limitations:</Text>
+
+          <div className="m-10 text-left">
+            <Text> <b> - Standard-Generator has a Maximum of 200 Characters</b> </Text>
+            <Text> <b> - Readable-Generator has a Maximum of 20 Words</b> </Text>
+          </div>
+
+          <Text>Recommendations:</Text>
+
+          <div className="m-10 text-left">
+            <Text> <b> - Standard Passwords should be 20 or more Characters. (Default is 20)</b> </Text>
+            <Text> <b> - Readable Passwords should be 6 or more Words (Default is 6)</b> </Text>
+          </div>
+
+          <Subheader>Links and Credits</Subheader>
+          <div className="text-left">
+            <Text> - Created by <Link className="text-red-200" href="https://Youtube.com/@CatsrielDreemurr">@CatsrielDreemurr</Link> </Text>
+            <Text> - Version 2 (OLD) - <Link className="text-red-200" href="https://catsrieldreemurr.github.io/CatsrielsPasswordGenerator/index.html">Link</Link></Text>
+          </div>
+
+
+        </InfoBox>
+      </section>
+
+      <Footerbar></Footerbar>
     </div>
   );
 }
